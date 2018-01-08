@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Weather</title>
+  <meta name="author" content="SitePoint">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <h1>My Weather App</h1>
+  <div id="weather">
+    <h2 id="name">Name of Location</h2>
+    <p>Min Temp: <span id="min-temp">Min Temp</span></p>
+    <p>Max Temp: <span id="max-temp">Max Temp</span></p>
+    <p>Weather Condition: <span id="weather-condition">Weather condition</span></p>
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(function() {
+      var url = 'http://api.openweathermap.org/data/2.5/weather?zip=02111,us&appid=e8592698580fd76097f84a2f904750b3'
+      $.ajax({
+        dataType: "json",
+        url: url,
+        success: function(data){
+          console.log(data)
+        }
+      });
+    })
+  </script>
+</body>
+</html>
