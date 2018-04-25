@@ -638,59 +638,13 @@ var data = [
   // apply variables liberally
 
 // How many total watchers in the collection?
-var count = 0
-for(var i = 0; i < data.length; i++) {
-  count = count + data[i].watchers_count
-}
-console.log("There are " + count + " watchers")
 
-// What's the average size?
-var totalSize = 0
-for(var i = 0; i < data.length; i++) {
-  totalSize = totalSize + data[i].size
-}
-console.log("The average repo size is " + (totalSize / data.length))
+// What's the average repo size?
 
 // What's the longest repo name?
-var longestRepoName = ''
-var longestRepoLength = 0
-for(var i = 0; i < data.length; i++){
-  if(longestRepoLength < data[i].name.length) {
-    longestRepoName = data[i].name
-    longestRepoLength = data[i].name.length
-  }
-}
-console.log("The longest repo name is " + longestRepoName)
 
 // What's the longest repo description?
-var longestRepoDesc = ''
-var longestRepoDescLength = 0
-for(var i = 0; i < data.length; i++){
-  if(data[i].description && longestRepoDescLength < data[i].description.length) {
-    longestRepoDesc= data[i].description
-    longestRepoDescLength = data[i].description.length
-  }
-}
-console.log("The longest repo name is " + longestRepoDesc)
 
 // What languages are present in the dataset?
-var languages = []
-for(var i = 0; i < data.length; i++){
-  if(data[i].language && !languages.includes(data[i].language)) {
-    languages.push(data[i].language)
-  }
-}
-console.log(languages)
 
 // When was the latest repo update? For what repo?
-let latestUpdate
-let latestUpdatedRepoName
-for(var i = 0; i < data.length; i++){
-  var updatedDate = new Date(data[i].updated_at)
-  if(!latestUpdate || updatedDate > latestUpdate){
-    latestUpdate = updatedDate
-    latestUpdatedRepoName = data[i].name
-  }
-}
-
-console.log("The latest updated repo is " + latestUpdatedRepoName)

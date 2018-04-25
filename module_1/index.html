@@ -5,7 +5,6 @@
   <meta charset="utf-8">
 
   <title>Weather</title>
-  <meta name="author" content="SitePoint">
 
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -27,30 +26,12 @@
   crossorigin="anonymous"></script>
   <script type="text/javascript">
     $(function() {
-      var url = 'http://api.openweathermap.org/data/2.5/weather?zip=90210,us&appid=e8592698580fd76097f84a2f904750b3'
+      var url = 'http://api.openweathermap.org/data/2.5/weather?zip=02110,us&appid=e8592698580fd76097f84a2f904750b3'
       $.ajax({
         dataType: "json",
         url: url,
         success: function(data){
-          var nameSpot = $("#name")
-          if(nameSpot){
-            $(nameSpot).html(data.name)
-          }
-
-          var minTempSpot = $("#min-temp")
-          if(minTempSpot) {
-            $(minTempSpot).html(data.main.temp_min)
-          }
-
-          var maxTempSpot = $("#max-temp")
-          if(maxTempSpot) {
-            $(maxTempSpot).html(data.main.temp_max)
-          }
-
-          var conditionSpot = $("#weather-condition")
-          if(conditionSpot) {
-            $(conditionSpot).html(data.weather[0].main)
-          }
+          console.log(data)
         }
       });
     })
